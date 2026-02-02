@@ -36,4 +36,5 @@
 
 ## 6. Links
 - **YouTube Video**: [TO BE UPLOADED BY USER]
-- **GitHub Repo**: [TO BE PROVIDED BY USER] (Internal Artifacts generated: `ARCHITECTURE.md`, `PROVIDERS.md`, `PRESETS.md`)
+- **GitHub Repo**: `https://github.com/ketewodros41-star/newassignment.git`
+- **Troubleshooting Journey**: [TROUBLESHOOTING_JOURNEY.md](file:///C:/Users/Davea/.gemini/antigravity/scratch/trp1_ai_content/TROUBLESHOOTING_JOURNEY.md) (Detailed report on challenges and solutions)

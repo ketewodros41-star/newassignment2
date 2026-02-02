@@ -1,7 +1,7 @@
 import os
 from moviepy import AudioFileClip, ImageClip
 
-audio_path = os.path.join("output", "instrumental.mp3")
+audio_path = os.path.join("output", "instrumental_new.mp3")
 image_path = os.path.join("output", "background.png")
 output_path = os.path.join("output", "submission_video.mp4")
 
