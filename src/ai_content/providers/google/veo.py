@@ -104,7 +104,7 @@ class GoogleVeoProvider:
 
         try:
             # Build config
-            config = types.GenerateVideoConfig(
+            config = types.GenerateVideosConfig(
                 aspect_ratio=aspect_ratio,
                 person_generation=person_generation,
             )
@@ -114,25 +114,27 @@ class GoogleVeoProvider:
                 # Image-to-video
                 image_data = await self._fetch_image(first_frame_url)
                 image = types.Image(image_bytes=image_data)
-                operation = await client.aio.models.generate_video(
+                result = await client.aio.models.generate_videos(
                     model=model,
                     prompt=prompt,
                     image=image,
                     config=config,
                 )
+                operation = result[0] if isinstance(result, list) else result
             else:
                 # Text-to-video
-                operation = await client.aio.models.generate_video(
+                result = await client.aio.models.generate_videos(
                     model=model,
                     prompt=prompt,
                     config=config,
                 )
+                operation = result[0] if isinstance(result, list) else result
 
             # Poll until complete
             logger.info("   Waiting for generation...")
             while not operation.done:
                 await asyncio.sleep(5)
-                operation = await client.aio.operations.get(operation)
+                operation = await client.aio.operations.get(name=operation.name)
 
             if not operation.response or not operation.response.generated_videos:
                 return GenerationResult(
